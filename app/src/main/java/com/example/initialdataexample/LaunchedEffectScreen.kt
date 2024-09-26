@@ -31,7 +31,9 @@ class LaunchedEffectViewModel: ViewModel() {
     fun loadData() {
         viewModelScope.launch {
             _uiState.value = ScreenState.Loading
+            println("hasegawa loadData1 ${System.currentTimeMillis()}")
             delay(3000)
+            println("hasegawa loadData2 ${System.currentTimeMillis()}")
             _uiState.value = ScreenState.Content("LaunchedEffectScreen")
         }
     }

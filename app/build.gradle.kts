@@ -70,4 +70,6 @@ dependencies {
 
     // Jetpack Compose integration
     implementation(libs.androidx.navigation.compose)
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0-RC.2")
 }
