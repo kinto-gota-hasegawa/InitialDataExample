@@ -1,5 +1,6 @@
 package com.example.initialdataexample
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.ViewModel
@@ -31,10 +32,9 @@ class LaunchedEffectViewModel: ViewModel() {
     fun loadData() {
         viewModelScope.launch {
             _uiState.value = ScreenState.Loading
-            println("hasegawa loadData1 ${System.currentTimeMillis()}")
-            delay(3000)
-            println("hasegawa loadData2 ${System.currentTimeMillis()}")
+            delay(LOAD_DELAY)
             _uiState.value = ScreenState.Content("LaunchedEffectScreen")
+            Log.i("hasegawa", "LaunchedEffectViewModel load DONE")
         }
     }
 }

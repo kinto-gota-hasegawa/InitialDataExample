@@ -1,5 +1,6 @@
 package com.example.initialdataexample
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -36,8 +37,9 @@ class ReactiveViewModel(): ViewModel() {
     private fun loadData() {
         viewModelScope.launch {
             _uiState.value = ScreenState.Loading
-            delay(3000)
+            delay(LOAD_DELAY)
             _uiState.value = ScreenState.Content("ReactiveScreen")
+            Log.i("hasegawa", "ReactiveViewModel load DONE")
         }
     }
 }
